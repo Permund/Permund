@@ -1,49 +1,62 @@
-<!DOCTYPE html>
-<html>
-	<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-        <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
-        <!--<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js"></script>-->
-        <title>TEMPLATE</title>
-        </head>
-
-<body>
- <div data-role="page">
-
-	<div data-role="header">
-		<h1>EXCHANGE R</h1>
+<html class="ui-mobile"><!--  
+Used to show viewport
+with class="col" il compartamento di default e' impilare (mobile first)
+col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno dopo l'altro
+--><head><base href="https://rberaldi.github.io/BS4/exchange.html">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css">
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+	<!--<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js"></script>-->
+	<title>TEMPLATE</title>
+	</head>
+	<body class="ui-mobile-viewport ui-overlay-c">
+	<div data-role="page" data-url="/BS4/exchange.html" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 723px;">
+	<div data-role="header" class="ui-header ui-bar-a" role="banner">
+		<h1 class="ui-title" role="heading" aria-level="1">CHANGE RATES</h1>
+		<div data-role="navbar" class="ui-navbar ui-mini" role="navigation">
+</div><!-- /navbar -->
 	</div><!-- /header -->
-
-	<div role="main" class="ui-content">
-		<a data-role="button" onclick="getData()">Link button</a>
+	<div data-role="content" class="ui-content" role="main">
+		<a data-role="button" data-icon="star" onclick="getdata()" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-icon-left"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Get latest rates</span><span class="ui-icon ui-icon-star ui-icon-shadow">&nbsp;</span></span></a>	
+		<ul id="all" data-role="listview" data-inset="true" data-filter="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+		</ul>	
 	</div><!-- /content -->
 
 </div><!-- /page -->
-	
+
 	<script>
-		function getData() {
-		
-				endpoint = 'latest'
-				access_key = 'c89458c6c5adc14ff8b730b8fbfcc057';
-
-				// get the most recent exchange rates via the "latest" endpoint:
-				$.ajax({
-    					url: 'https://data.fixer.io/api/' + endpoint + '?access_key=' + access_key,   
-    					dataType: 'jsonp',
-    					success: function(json) {
-
-				        // exchange rata data is stored in json.rates
-        				alert(json['rates']);
-        
-       				}
-				});
-
+		function getdata() {
+			endpoint = 'latest'
+			access_key = 'c89458c6c5adc14ff8b730b8fbfcc057
+';
+			// get the most recent exchange rates via the "latest" endpoint:
+			$.ajax({
+    				url: 'http://data.fixer.io/api/' + endpoint + '?access_key=' + access_key,   
+    				dataType: 'jsonp',
+    				success: function(json) {
+				rates = json['rates'];
+				//alert(rates);
+				for (var k in rates) {
+					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
+					//  string1 += object1[property1];
 				}
-		
-		
+				$("#all").listview('refresh');
+			        // exchange rata data is stored in json.rates
+        			//alert(json.rates.GBP);
+        
+        			// base currency is stored in json.base
+        			//alert(json.base);
+        
+        			// timestamp can be accessed in json.timestamp
+        			//alert(json.timestamp);
+        
+  		  }
+		});
+		}
 	</script>
-	</body>
-</html>
+
+	
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div></body></html>
