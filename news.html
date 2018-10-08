@@ -38,13 +38,13 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
     				url: 'https://newsapi.org/v2/sources?apiKey=48b2dab6b1894393b0563652effafd0b',   
     				dataType: 'jsonp',
     				success: function(json) {
-				rates = json['source']['id'];
-				//alert(rates);
-				for (var k in rates) {
-					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
+				rates = json['sources'];
+				alert(rates);
+				//for (var k in rates) {
+					//$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
 					//  string1 += object1[property1];
-				}
-				$("#all").listview('refresh');
+				//}
+				//$("#all").listview('refresh');
 			        // exchange rata data is stored in json.rates
         			//alert(json.rates.GBP);
         
