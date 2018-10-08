@@ -33,7 +33,7 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 		function getdata() {
 			endpoint = 'latest'
 			access_key = 'c89458c6c5adc14ff8b730b8fbfcc057';
-			string1 ='';
+		
 			// get the most recent exchange rates via the "latest" endpoint:
 			$.ajax({
     				url: 'https://newsapi.org/v2/sources?apiKey=48b2dab6b1894393b0563652effafd0b',   
@@ -43,7 +43,7 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 				alert(json);
 				for (var k in rates) {
 					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
-					  string1 += object1[property1];
+					  //string1 += object1[property1];
 				}
 				$("#all").listview('refresh');
 			        // exchange rata data is stored in json.rates
