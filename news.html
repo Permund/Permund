@@ -35,10 +35,10 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 			access_key = 'c89458c6c5adc14ff8b730b8fbfcc057';
 			// get the most recent exchange rates via the "latest" endpoint:
 			$.ajax({
-    				url: 'https://newsapi.org/v2/top-headlines?country=us&apiKey=48b2dab6b1894393b0563652effafd0b',   
+    				url: 'https://newsapi.org/v2/sources?apiKey=48b2dab6b1894393b0563652effafd0b',   
     				dataType: 'jsonp',
     				success: function(json) {
-				rates = json['status'];
+				rates = json['id'];
 				//alert(rates);
 				for (var k in rates) {
 					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
