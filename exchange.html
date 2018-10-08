@@ -19,7 +19,7 @@
 
 	<div role="main" class="ui-content">
 		<p>Page content goes here.</p>
-		<a data-role="button">Link button</a>
+		<a data-role="button" onclick="getData()">Link button</a>
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -28,6 +28,29 @@
 </div><!-- /page -->
 	
 	<script>
+	function getData(){
+	// set endpoint and your access key
+	endpoint = 'latest'
+	access_key = 'c89458c6c5adc14ff8b730b8fbfcc057';
+
+	// get the most recent exchange rates via the "latest" endpoint:
+	$.ajax({
+	    url: 'http://data.fixer.io/api/' + endpoint + '?access_key=' + access_key,   
+	    dataType: 'jsonp',
+    	    success: function(json) {
+
+        // exchange rata data is stored in json.rates
+        alert(json.rates.GBP);
+        
+        // base currency is stored in json.base
+        alert(json.base);
+        
+        // timestamp can be accessed in json.timestamp
+        alert(json.timestamp);
+        
+    }
+});
+	}
 	</script>
 	</body>
 </html>
