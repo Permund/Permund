@@ -39,10 +39,10 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
     				url: 'https://newsapi.org/v2/sources?apiKey=48b2dab6b1894393b0563652effafd0b',   
     				dataType: 'json',
     				success: function(json) {
-				rates = json['status'];
+				rates = json['sources'];
 				alert(json);
 				for (var k in rates) {
-					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
+					$( "#all" ).append( "<li>"+k+"  "+rates['id']+"</li>" );
 					  //string1 += object1[property1];
 				}
 				$("#all").listview('refresh');
