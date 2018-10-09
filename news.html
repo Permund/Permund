@@ -20,12 +20,12 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 	<body>
 	<div data-role="page">
 	<div data-role="header">
-		<h1>CHANGE RATES</h1>
+		<h1>GET ALL THE NEWS</h1>
 		<div data-role="navbar">
 </div><!-- /navbar -->
 	</div><!-- /header -->
 	<div data-role="content">
-		<a data-role="button" data-icon="star" onclick="getdata()">Get latest rates</a>	
+		<a data-role="button" data-icon="star" onclick="getdata()">Get</a>	
 		<ul id="all" data-role="listview" data-inset="true" data-filter="false">
 		</ul>	
 	</div><!-- /content -->
@@ -45,7 +45,7 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 				rates = json['sources'];
 				alert(json);
 				for (var k in rates) {
-					$( "#all" ).append( "<li> <h3>"+'NAME:'+" "+rates[k].name+" </h3> <p>"+'DESCRIPTION'+" "+rates[k].description+" </p> <p>"+'URL'+" "+rates[k].url+" </p></li>" );
+					$( "#all" ).append( "<li> <h3>"+'NAME:'+" "+rates[k].name+" </h3> <p>"+'DESCRIPTION:'+" "+rates[k].description+" </p> <p>"+'URL:'+" "+rates[k].url+" </p></li>" );
 					  //string1 += object1[property1];
 				}
 				$("#all").listview('refresh');
